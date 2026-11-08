@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0d">
+<meta name="description" content="Sean Nwabuoku — game development programmer portfolio. Explore Vector of Fear and Kairos Paradox.">
+<title>Sean Nwabuoku | Game Programmer</title>
+<style>
+:root{--bg:#090a0d;--panel:#111319;--panel2:#171a22;--text:#f2f3f7;--muted:#a2a7b4;--line:#292d38;--accent:#ff3f4f;--gold:#d6b681;--max:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}button,a{ -webkit-tap-highlight-color:transparent}.wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
+header{height:76px;position:sticky;top:0;z-index:10;background:rgba(9,10,13,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:800;letter-spacing:.04em;font-size:1rem}.brand span{color:var(--accent)}nav{display:flex;gap:30px;align-items:center}nav a{color:#c4c7d0;font-size:.92rem;transition:color .2s}nav a:hover,nav a.active{color:white}.nav-cta{border:1px solid #3a3d48;border-radius:999px;padding:9px 16px}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:white;border-radius:10px;padding:8px 11px;font-size:1.1rem}
+.hero{position:relative;overflow:hidden;padding:100px 0 88px;min-height:590px;display:flex;align-items:center;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 77% 35%,rgba(255,63,79,.12),transparent 32%),radial-gradient(ellipse at 10% 85%,rgba(214,182,129,.07),transparent 30%)}
+.hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black,transparent)}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:70px}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.19em;display:flex;align-items:center;gap:10px}.eyebrow:before{content:"";height:1px;width:27px;background:currentColor}
+h1{font-size:clamp(3rem,6.5vw,5.7rem);line-height:.99;letter-spacing:-.065em;margin:22px 0 24px;font-weight:850}h1 span{color:var(--accent)}.hero-copy{max-width:620px;color:#b8bbc5;font-size:1.08rem}.hero-copy strong{color:white;font-weight:650}.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 19px;border-radius:8px;font-weight:750;font-size:.92rem;border:1px solid transparent;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--accent);color:#fff}.btn-secondary{border-color:#3a3d48;background:rgba(255,255,255,.025)}.hero-note{margin-top:26px;color:#777d8b;font-size:.82rem;letter-spacing:.02em}
+.portrait-frame{justify-self:end;position:relative;width:min(100%,320px);padding:12px;border:1px solid #36303a;border-radius:16px;background:linear-gradient(145deg,#1c1b22,#0e0f13);box-shadow:0 30px 90px #0009}.portrait-frame:before{content:"";position:absolute;inset:-12px 24px 24px -12px;border:1px solid rgba(255,63,79,.48);border-radius:16px;z-index:-1}.portrait-frame img{width:100%;height:380px;object-fit:cover;object-position:center 27%;display:block;border-radius:9px;filter:saturate(.82)}.portrait-tag{display:flex;justify-content:space-between;gap:10px;padding:12px 4px 1px;font-size:.75rem;color:#b5b6c0}.portrait-tag span:last-child{color:var(--accent)}
+.section{padding:92px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px}.kicker{color:var(--accent);font-size:.76rem;letter-spacing:.17em;text-transform:uppercase;font-weight:800}.section h2{font-size:clamp(2rem,4vw,3.15rem);line-height:1.08;letter-spacing:-.045em;margin:10px 0 0}.section-intro{max-width:410px;color:var(--muted);margin:0}
+.about-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:13px;overflow:hidden;margin-top:48px}.stat{background:var(--panel);padding:23px 25px}.stat strong{display:block;font-size:1.05rem;margin-bottom:4px}.stat span{color:var(--muted);font-size:.86rem}
+.projects{background:#0d0f14;border-top:1px solid #1d2028;border-bottom:1px solid #1d2028}.project-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.project-card{overflow:hidden;border:1px solid #2b2e38;border-radius:14px;background:var(--panel);transition:border-color .25s,transform .25s}.project-card:hover{transform:translateY(-5px);border-color:#56515b}.project-image{height:245px;background:#171820;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.project-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,14,.3),transparent 50%);pointer-events:none}.project-image img{width:100%;height:100%;object-fit:contain;display:block}.project-image.vector{background:#110707}.project-image.kairos{background:#111211}.project-image.nebula{background:#190d29}.project-image.nebula img{object-fit:cover}.project-image.nebula{background:#170d2b}.project-image.nebula img{object-fit:cover}.project-body{padding:25px 26px 27px}.project-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#8e94a2;font-size:.75rem;text-transform:uppercase;letter-spacing:.11em}.pill{border:1px solid #363944;border-radius:999px;padding:5px 9px;color:#d0d2da;letter-spacing:.04em;font-size:.68rem}.project-body h3{font-size:1.55rem;letter-spacing:-.03em;margin:17px 0 8px}.project-body p{margin:0;color:#aeb2be;max-width:440px}.contributions{margin-top:22px;padding-top:18px;border-top:1px solid #2b2e38}.contributions h4{margin:0 0 12px;font-size:.9rem;color:#f0f1f5;letter-spacing:.01em}.contributions ul{margin:0;padding-left:19px;display:grid;gap:9px;color:#aeb2be;font-size:.88rem}.contributions li{padding-left:2px}.contributions li::marker{color:var(--accent)}.contributions strong{color:#e5e6eb;font-weight:650}.project-foot{margin-top:24px;padding-top:16px;border-top:1px solid #2b2e38;display:flex;justify-content:space-between;align-items:center;color:#858b99;font-size:.82rem}.project-foot span:last-child{color:var(--accent);font-weight:700}
+.focus{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}.focus h2{margin-bottom:18px}.focus p{color:var(--muted);margin-top:0}.skill-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}.skill{padding:18px;border:1px solid var(--line);background:var(--panel);border-radius:10px}.skill strong{display:block;font-size:.95rem;margin-bottom:4px}.skill span{color:var(--muted);font-size:.83rem}
+.email-link{color:#fff;font-weight:750;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px;overflow-wrap:anywhere}.email-link:hover{color:var(--accent)}.contact{background:radial-gradient(ellipse at 50% 120%,rgba(255,63,79,.1),transparent 55%);border-top:1px solid var(--line)}.contact-panel{padding:44px;border:1px solid #30313a;border-radius:15px;background:linear-gradient(120deg,#14151b,#0d0e12);display:flex;justify-content:space-between;align-items:center;gap:30px}.contact-panel h2{margin-top:10px}.contact-panel p{color:var(--muted);max-width:480px;margin-bottom:0}
+footer{padding:25px 0;color:#777d8a;font-size:.8rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.back-top{color:#c7c9d1}
+@media(max-width:800px){.hero{padding:72px 0}.hero-grid{grid-template-columns:1fr .65fr;gap:28px}.portrait-frame{width:100%}.portrait-frame img{height:300px}.section{padding:70px 0}.section-head{align-items:start;flex-direction:column}.focus{grid-template-columns:1fr;gap:28px}.contact-panel{padding:30px;align-items:flex-start;flex-direction:column}}
+@media(max-width:620px){.wrap{width:min(100% - 32px,var(--max))}header{height:68px}.menu-btn{display:block}nav{display:none;position:absolute;top:67px;left:0;right:0;padding:20px 22px 24px;background:#0c0d11;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:17px}nav.open{display:flex}nav .nav-cta{text-align:center}.hero{padding:55px 0 62px}.hero-grid{grid-template-columns:1fr;gap:34px}.portrait-frame{justify-self:start;width:230px}.portrait-frame img{height:270px}h1{font-size:clamp(3rem,14vw,4.5rem)}.hero-copy{font-size:1rem}.about-strip{grid-template-columns:1fr}.stat{padding:18px 20px}.project-grid{grid-template-columns:1fr}.project-image{height:205px}.project-body{padding:22px}.skill-list{grid-template-columns:1fr}.contact-panel{padding:25px}.footer-inner{align-items:flex-start;flex-direction:column;gap:7px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+.project-showcase{display:flex;flex-direction:column;gap:30px}
+.showcase-row{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);min-height:340px;border:1px solid #30333d;border-radius:17px;overflow:hidden;background:#14161d;transition:border-color .2s}
+.showcase-row:hover{border-color:#5b525d}
+.showcase-art{min-height:320px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#111}
+.showcase-art.vector{background:#130608}.showcase-art.kairos{background:#121212}.showcase-art.nebula{background:#160b26}
+.showcase-art img{display:block;width:100%;height:100%;max-height:410px;object-fit:contain}
+.showcase-art.nebula img{object-fit:cover}
+.showcase-info{padding:clamp(26px,4vw,54px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.showcase-info .project-meta{width:100%}.showcase-info h3{font-size:clamp(1.9rem,3.2vw,2.7rem);line-height:1.1;letter-spacing:-.045em;margin:22px 0 14px}.showcase-info p{color:#b5bac6;margin:0 0 18px;max-width:490px}
+.showcase-info .showcase-sub{font-size:.79rem;color:#8f96a5;letter-spacing:.035em;margin-bottom:27px}
+.project-details-section{background:#0a0c10}.details-heading{font-size:clamp(2rem,4vw,3.15rem);letter-spacing:-.045em;margin:10px 0 12px}.details-intro{color:#a8adba;max-width:680px;margin:0 0 38px}
+.detail-panel{scroll-margin-top:95px;padding:clamp(24px,4vw,46px);margin:0 0 25px;border:1px solid #2e323d;border-radius:15px;background:#13151c}
+.detail-heading{display:flex;align-items:start;justify-content:space-between;gap:20px}.detail-number{font-size:.76rem;color:var(--accent);font-weight:800;letter-spacing:.13em}.detail-heading h3{font-size:clamp(1.7rem,3vw,2.3rem);margin:8px 0 18px;letter-spacing:-.03em}.detail-back{color:#c6c9d1;font-size:.85rem;white-space:nowrap}.detail-back:hover{color:var(--accent)}
+.detail-panel p,.detail-panel li{color:#b3b8c4;max-width:850px}.detail-panel h4{margin:26px 0 10px}.detail-panel ul{padding-left:20px;display:grid;gap:9px}.detail-panel li::marker{color:var(--accent)}.detail-panel li strong{color:#f0f1f4}
+@media(max-width:720px){.showcase-row{grid-template-columns:1fr}.showcase-art{min-height:220px;height:230px}.showcase-info{padding:27px}.showcase-info h3{margin-top:18px}.detail-heading{flex-wrap:wrap}}
+
+.detail-hero-image{margin:8px 0 24px;width:100%;height:clamp(240px,39vw,450px);border-radius:13px;overflow:hidden;background:#100d14;border:1px solid #33313d;display:flex;align-items:center;justify-content:center}
+.detail-hero-image img{width:100%;height:100%;object-fit:contain}
+#nebula-details .detail-hero-image img{object-fit:cover}
+.detail-panel .tech-stack{font-size:.87rem;font-weight:750;color:#e7b9bd;letter-spacing:.025em;margin:18px 0 26px}
+.systems-made{margin-top:32px;padding-top:22px;border-top:1px solid #343744}
+.systems-made h4{font-size:1.2rem;margin:0 0 6px}
+.systems-made>p{margin:0 0 20px;color:#9ea5b3}
+.systems-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.system-link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#1b1e27;border:1px solid #3a3d49;border-radius:10px;padding:17px 19px;font-size:.93rem;font-weight:700;transition:background .2s,border-color .2s}
+.system-link span{color:var(--accent)}.system-link:hover{background:#252832;border-color:var(--accent)}
+.system-breakdowns{background:#0d0f14;border-top:1px solid #272a35}
+.system-group-title{font-size:1.6rem;letter-spacing:-.03em;margin:35px 0 16px}
+.system-breakdown-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.system-breakdown-card{scroll-margin-top:100px;display:flex;flex-direction:column;align-items:flex-start;border:1px solid #30343e;border-radius:13px;background:#161820;padding:27px;min-height:245px}
+.system-breakdown-card:target{border-color:var(--accent);box-shadow:0 0 0 1px rgba(255,63,79,.22)}
+.system-kicker{font-size:.69rem;color:var(--accent);letter-spacing:.15em;font-weight:800}
+.system-breakdown-card h4{font-size:1.22rem;margin:10px 0 9px}
+.system-breakdown-card p{color:#b0b5c1;margin:0 0 16px}
+.coming-note{color:#818996;font-size:.79rem;margin-top:auto;margin-bottom:16px}
+@media(max-width:650px){.systems-links,.system-breakdown-grid{grid-template-columns:1fr}.detail-hero-image{height:230px}}
+
+.movement-detail{grid-column:1/-1;padding:clamp(25px,4vw,42px)}
+.movement-detail h4{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:22px}
+.movement-detail h5{font-size:1.05rem;color:#f4f4f7;margin:24px 0 10px}
+.movement-detail>p{max-width:950px;line-height:1.85}
+.movement-gifs{display:grid;grid-template-columns:1fr 1.35fr;gap:18px;width:100%;align-items:stretch}
+.movement-gifs figure{margin:0;border:1px solid #363a48;border-radius:12px;background:#0c0d13;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.movement-gifs img{display:block;width:100%;height:auto;max-height:340px;object-fit:contain}
+.movement-gifs figcaption{padding:11px 14px;color:#a8afbe;font-size:.8rem;border-top:1px solid #292d39}
+.movement-contributions{display:flex;gap:10px;flex-wrap:wrap;margin:5px 0 27px}
+.movement-contributions span{border:1px solid #45404c;border-radius:999px;background:#24202c;color:#e9dce4;padding:8px 13px;font-size:.82rem;font-weight:650}
+@media(max-width:720px){.movement-gifs{grid-template-columns:1fr}}
+
+.movement-code-gallery{width:100%;margin:24px 0 28px;padding-top:22px;border-top:1px solid #343744}
+.movement-code-gallery>p{color:#adb4c1;max-width:850px}
+.movement-code-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%}
+.movement-code-grid figure{margin:0;background:#101116;border:1px solid #353946;border-radius:12px;overflow:hidden;min-width:0}
+.movement-code-grid img{display:block;width:100%;height:auto;object-fit:contain}
+.movement-code-grid .code-wide{grid-column:1/-1}
+.movement-code-grid figcaption{padding:12px 15px;border-top:1px solid #2d303a;color:#abb2c0;font-size:.83rem}
+@media(max-width:700px){.movement-code-grid{grid-template-columns:1fr}.movement-code-grid .code-wide{grid-column:auto}}
+.movement-video{width:100%;height:100%;display:block;object-fit:contain;background:#100d17}
+.movement-diagram{width:100%;padding-top:22px;margin:24px 0;border-top:1px solid #343744}
+.movement-diagram figure{margin:12px 0 0;padding:20px;background:#f9f9fb;border-radius:12px;text-align:center}
+.movement-diagram img{display:block;max-width:100%;max-height:650px;width:auto;height:auto;margin:auto}
+.movement-diagram figcaption{color:#4a4560;font-size:.82rem;margin-top:12px}
+.gravity-video-wrap{width:100%;max-width:950px;margin:18px auto 24px}.gravity-video-wrap figure{margin:0;background:#101116;border:1px solid #353946;border-radius:12px;overflow:hidden}.gravity-video-wrap video{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}.gravity-video-wrap figcaption{padding:12px 15px;color:#abb2c0;font-size:.83rem}
+.vector-single-video{width:100%;max-width:1000px;margin:0 auto 24px}.vector-single-video figure{margin:0;overflow:hidden;border-radius:12px;background:#101116;border:1px solid #333845}.vector-single-video video{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}.vector-single-video figcaption{padding:12px 16px;color:#b4bbc7;font-size:.84rem}.movement-gifs video{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#101116}
+
+.misc-clips-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;width:100%;margin:18px 0 28px}.misc-video-unit{background:#101219;border:1px solid #343844;border-radius:12px;padding:16px;min-width:0}.misc-video-unit h5{font-size:1.05rem;margin:0 0 12px;color:#f0f1f5}.misc-video-unit video{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#08090c;border-radius:8px}.misc-clip-description{padding-top:14px}.misc-clip-description h6{font-size:.92rem;margin:0 0 5px;color:#f0f1f5}.misc-clip-description p{margin:0;color:#aeb4c1;font-size:.9rem}@media(max-width:760px){.misc-clips-grid{grid-template-columns:1fr}}
+.contact-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}.contact-social{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border:1px solid #41424b;border-radius:9px;color:#f5f5f7;text-decoration:none;font-weight:700;transition:border-color .2s,background .2s}.contact-social:hover,.contact-social:focus-visible{border-color:var(--accent);background:rgba(255,63,79,.1)}
+
+/* Combat inspector screenshot gallery */
+.combat-settings-gallery{margin:22px 0 24px}.combat-settings-gallery>h5{margin:0 0 16px}.combat-settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.combat-settings-grid figure{margin:0;padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.035);display:flex;flex-direction:column;gap:10px}.combat-settings-grid img{width:100%;height:auto;object-fit:contain;border-radius:7px}.combat-settings-grid figcaption{font-size:.85rem;color:#c5c5c9}@media(max-width:680px){.combat-settings-grid{grid-template-columns:1fr}}
+
+/* Camera bobbing Inspector screenshots */
+.misc-camera-unit{grid-column:1/-1}
+.misc-camera-settings-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0 18px}
+.misc-camera-settings-gallery figure{margin:0;min-width:0;overflow:hidden;border:1px solid #353946;border-radius:10px;background:#0b0c10}
+.misc-camera-settings-gallery img{display:block;width:100%;height:auto;object-fit:contain}
+.misc-camera-settings-gallery figcaption{padding:10px 12px;border-top:1px solid #2d303a;color:#abb2c0;font-size:.83rem}
+@media(max-width:640px){.misc-camera-settings-gallery{grid-template-columns:1fr}}
+
+/* Miscellaneous: Generator Repairing and Crate UI inspector screenshots */
+.misc-single-settings-gallery{margin:15px 0 18px;max-width:620px}
+.misc-single-settings-gallery figure{margin:0;min-width:0;overflow:hidden;border:1px solid #353946;border-radius:10px;background:#0b0c10}
+.misc-single-settings-gallery img{display:block;width:100%;height:auto;object-fit:contain}
+.misc-single-settings-gallery figcaption{padding:10px 12px;border-top:1px solid #2d303a;color:#abb2c0;font-size:.83rem}
+
+/* Portfolio screenshot layout refinements */
+.vector9-settings-gallery .movement-code-grid .compact-inspector,
+.inventory-settings-gallery .movement-code-grid .compact-inspector{
+  grid-column:1/-1;
+  width:min(100%,430px);
+  justify-self:center;
+}
+.vector9-settings-gallery .compact-inspector img,
+.inventory-settings-gallery .compact-inspector img{max-height:540px;object-fit:contain}
+/* Give the save/checkpoint feature its own full-width row. */
+.misc-save-unit{grid-column:1/-1}
+.misc-save-unit>h5{text-align:center}
+.misc-save-unit>video{display:block;width:min(100%,900px);margin:0 auto}
+.misc-save-unit .misc-clip-description{max-width:1080px;margin:0 auto}
+.misc-save-unit .save-settings-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:26px;
+  align-items:center;
+  max-width:1040px;
+  margin:16px auto 22px;
+}
+.misc-save-unit .save-settings-grid figure{
+  display:flex;flex-direction:column;justify-content:center;
+  align-items:center;min-height:220px;
+}
+.misc-save-unit .save-settings-grid img{width:auto;max-width:100%;max-height:710px;object-fit:contain}
+.misc-save-unit .save-settings-grid figcaption{width:100%;text-align:center}
+@media(max-width:760px){
+  .misc-save-unit .save-settings-grid{grid-template-columns:1fr;gap:16px}
+  .misc-save-unit .save-settings-grid figure{min-height:0}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Sean Nwabuoku home">SN<span>.</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav id="navLinks" aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#focus">Speciality</a><a class="nav-cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Game development · Programming</div>
+      <h1>Building worlds.<br><span>Writing systems.</span></h1>
+      <p class="hero-copy">Hi, I'm <strong>Sean Nwabuoku</strong>, a third-year university student studying game development. I’m passionate about the programming behind memorable games, building gameplay systems that make virtual worlds feel believable, responsive, and unique.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#projects">Explore my projects <span aria-hidden="true">↘</span></a><a class="btn btn-secondary" href="#about">More about me</a></div>
+      <div class="hero-note">UNITY · UNREAL ENGINE · GAMEPLAY PROGRAMMING</div>
+    </div>
+    <div class="portrait-frame">
+      <img src="assets/media-01.jpg" alt="Portrait of Sean Nwabuoku">
+      <div class="portrait-tag"><span>SEAN NWABUOKU</span><span>GAME PROGRAMMER</span></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head"><div><div class="kicker">01 / About me</div><h2>Curiosity turns into code.</h2></div><p class="section-intro">I enjoy solving problems through programming and collaborating to turn creative concepts into playable experiences.</p></div>
+    <p style="max-width:790px;color:#b3b7c2;margin:0">Over the past two and a half years, I’ve been building my game programming skills through projects in Unity and Unreal Engine. I’m particularly interested in AI programming and the ways intelligent systems can bring a game world to life—from how enemies perceive and respond to players to how their behaviour creates a more engaging experience. I also enjoy exploring how gameplay mechanics, systems, and player interactions work together to make a game feel cohesive.</p>
+    <div class="about-strip">
+      <div class="stat"><strong>~2.5 years</strong><span>Game development programming</span></div>
+      <div class="stat"><strong>Unity 3D</strong><span>Horror and survival gameplay</span></div>
+      <div class="stat"><strong>Unreal Engine</strong><span>Gameplay and interactive systems</span></div>
+    </div>
+  </div>
+</section>
+<section class="section projects" id="projects">
+  <div class="wrap">
+    <div class="section-head"><div><div class="kicker">02 / Selected work</div><h2>Projects I've worked on.</h2></div><p class="section-intro">A collection of game projects exploring different genres, engines, and player experiences.</p></div>
+    <div class="project-showcase">
+      <article class="showcase-row">
+        <div class="showcase-art vector"><img src="assets/media-02.png" alt="Vector of Fear game logo"></div>
+        <div class="showcase-info"><div class="project-meta"><span>01 / Featured project</span><span class="pill">Unity 3D</span></div>
+          <h3>Vector of Fear</h3><p>A first-person horror survival game made in Unity 3D. Explore a spaceship, survive encounters with a hostile robotic enemy, and work toward escaping.</p>
+          <p class="showcase-sub">Horror · Survival · Gameplay &amp; AI programming</p>
+          <a class="btn btn-primary" href="#vector-details">View more ↗</a>
+        </div>
+      </article>
+      <article class="showcase-row">
+        <div class="showcase-art kairos"><img src="assets/media-03.png" alt="Kairos Paradox game logo"></div>
+        <div class="showcase-info"><div class="project-meta"><span>02 / Featured project</span><span class="pill">Unreal Engine</span></div>
+          <h3>Kairos Paradox</h3><p>A third-person murder mystery game made in Unreal Engine, centred on investigation and uncovering the truth behind a mysterious crime.</p>
+          <p class="showcase-sub">Mystery · Investigation</p>
+          <a class="btn btn-primary" href="#kairos-details">View more ↗</a>
+        </div>
+      </article>
+      <article class="showcase-row">
+        <div class="showcase-art nebula"><img src="assets/media-04.png" alt="Nebula screenshot showing glowing floating asteroid platforms in space"></div>
+        <div class="showcase-info"><div class="project-meta"><span>03 / Featured project</span><span class="pill">Unity 3D</span></div>
+          <h3>Nebula</h3><p>A 3D space platformer built in Unity where players use low-gravity jumps to travel between floating asteroids and reach the end of the course.</p>
+          <p class="showcase-sub">Space · Platformer · Player movement</p>
+          <a class="btn btn-primary" href="#nebula-details">View more ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="section project-details-section" id="project-details">
+  <div class="wrap">
+    <div class="kicker">03 / Project breakdowns</div><h2 class="details-heading">Explore each project.</h2>
+    <p class="details-intro">A closer look at the games and the programming work behind them. More technical breakdowns will be added over time.</p>
+    <article class="detail-panel" id="vector-details">
+      <div class="detail-heading"><div><span class="detail-number">01 / UNITY 3D</span><h3>Vector of Fear</h3></div><a href="#projects" class="detail-back">↑ All projects</a></div>
+      <div class="detail-hero-image"><img src="assets/media-02.png" alt="Vector of Fear game logo"></div>
+      <p>A first-person horror survival game made in Unity 3D. Players explore a spaceship while avoiding a dangerous robotic enemy and using tools and interactive systems to survive and escape.</p>
+      <p class="tech-stack">Unity 3D / C# / AI Programming</p>
+      <h4>My programming contributions</h4>
+      <ul><li><strong>Enemy AI:</strong> Worked on enemy patrol behaviour, sound detection, and player-location detection, building practical experience with AI-driven gameplay.</li><li><strong>Player movement:</strong> Implemented movement features including camera bobbing.</li><li><strong>Inventory management:</strong> Built item handling and inventory-related logic.</li><li><strong>Item cooldowns:</strong> Implemented cooldown logic to manage item usage.</li><li><strong>UI logic:</strong> Connected interface behaviour with gameplay systems.</li></ul>
+    <div class="systems-made"><h4>Systems Made</h4><p>Select a system to explore its implementation.</p><div class="systems-links"><a href="#vector-ai" class="system-link">Vector9 Enemy AI<span aria-hidden="true">↗</span></a><a href="#vector-inventory" class="system-link">Item Collection & Inventory Management<span aria-hidden="true">↗</span></a><a href="#vector-combat" class="system-link">Combat<span aria-hidden="true">↗</span></a><a href="#vector-misc" class="system-link">Miscellaneous<span aria-hidden="true">↗</span></a></div></div>
+    </article>
+    <article class="detail-panel" id="kairos-details">
+      <div class="detail-heading"><div><span class="detail-number">02 / UNREAL ENGINE</span><h3>Kairos Paradox</h3></div><a href="#projects" class="detail-back">↑ All projects</a></div>
+      <div class="detail-hero-image"><img src="assets/media-03.png" alt="Kairos Paradox game logo"></div>
+      <p>A third-person murder mystery game made inside Unreal Engine, focused on investigation and piecing together clues to uncover the truth.</p>
+      <p class="tech-stack">Unreal Engine / Blueprints / WIP</p>
+      <h4>My programming contributions</h4><p>Coming soon.</p>
+    <div class="systems-made"><h4>Systems Made</h4><p>Coming soon — system breakdowns will be added as development progresses.</p></div>
+    </article>
+    <article class="detail-panel" id="nebula-details">
+      <div class="detail-heading"><div><span class="detail-number">03 / UNITY 3D</span><h3>Nebula</h3></div><a href="#projects" class="detail-back">↑ All projects</a></div>
+      <div class="detail-hero-image"><img src="assets/media-04.png" alt="Nebula gameplay screenshot"></div>
+      <p>Nebula is a 3D platformer set in space. Players leap between floating asteroids and navigate the course to reach the final destination. Low gravity is central to the experience, allowing higher and longer jumps to cross gaps between platforms.</p>
+      <p class="tech-stack">Unity 3D / C# / Custom movement & Gravity</p>
+      <h4>My programming contributions</h4>
+      <ul><li><strong>Player movement:</strong> Developed jumping, look rotation, and player input detection.</li><li><strong>Low-gravity jumping:</strong> Implemented the core movement mechanic that lets players jump higher and farther to reach distant asteroid platforms.</li></ul>
+    <div class="systems-made"><h4>Systems Made</h4><p>Select a system to explore its implementation.</p><div class="systems-links"><a href="#nebula-look" class="system-link">Camera look rotation<span aria-hidden="true">↗</span></a><a href="#nebula-movement" class="system-link">Jumping and movement control<span aria-hidden="true">↗</span></a><a href="#nebula-gravity" class="system-link">Low gravity mechanics<span aria-hidden="true">↗</span></a></div></div>
+    </article>
+  </div>
+</section>
+<section class="section system-breakdowns" id="system-breakdowns"><div class="wrap">
+  <div class="kicker">04 / Technical systems</div><h2 class="details-heading">Behind the mechanics.</h2>
+  <p class="details-intro">Explore the individual programming systems behind each project. These sections can be expanded with diagrams, code snippets, and screenshots.</p>
+<h3 class="system-group-title">Vector of Fear</h3><div class="system-breakdown-grid"><article class="system-breakdown-card movement-detail" id="vector-ai"><span class="system-kicker">VECTOR OF FEAR / SYSTEM BREAKDOWN</span><h4>Vector9 Enemy AI</h4><div class="movement-gifs"><figure><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Vector9 patrol gameplay"><source src="assets/media-05.mp4" type="video/mp4">Your browser does not support video.</video><figcaption>Vector9 / Patrol behaviour</figcaption></figure><figure><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Vector9 player detection gameplay"><source src="assets/media-06.mp4" type="video/mp4">Your browser does not support video.</video><figcaption>Vector9 / Player detection</figcaption></figure></div><h5>How the system works</h5>
+<div class="movement-code-gallery vector9-settings-gallery">
+<h5>Custom AI patrol, chase &amp; audio settings</h5>
+<p>Unity Inspector configurations for Vector9's patrol and chase movement, footsteps and proximity-based sound.</p>
+<div class="movement-code-grid">
+<figure><img src="assets/media-07.png" alt="Unity Inspector showing Vector9 patrol points, chase distance, patrol and chase speeds, stun settings and generator lock settings" loading="lazy"><figcaption>01 / Vector9 patrol and chase settings</figcaption></figure>
+<figure><img src="assets/media-08.png" alt="Unity Inspector showing enemy footstep walk and sprint thresholds, sound clips, screen shake and proximity step rumble" loading="lazy"><figcaption>02 / Footstep controller and proximity rumble</figcaption></figure>
+<figure class="compact-inspector"><img src="assets/media-09.png" alt="Unity Audio Source Inspector showing Vector9 infrasound, 3D spatial blend and linear volume rolloff from 1 to 60 units" loading="lazy"><figcaption>03 / Proximity audio and 3D sound falloff</figcaption></figure>
+</div></div><a href="#vector-details" class="detail-back">← Back to project</a></article><article class="system-breakdown-card movement-detail" id="vector-inventory"><span class="system-kicker">VECTOR OF FEAR / SYSTEM BREAKDOWN</span><h4>Item Collection &amp; Inventory Management</h4><div class="movement-gifs"><figure><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Vector of Fear item upgrades gameplay"><source src="assets/media-10.mp4" type="video/mp4">Your browser does not support video.</video><figcaption>Item upgrades</figcaption></figure><figure><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Vector of Fear item swapping and inventory gameplay"><source src="assets/media-11.mp4" type="video/mp4">Your browser does not support video.</video><figcaption>Item swapping &amp; inventory</figcaption></figure></div><h5>How the system works</h5>
+<div class="movement-code-gallery inventory-settings-gallery">
+<h5>Inventory and item interaction settings</h5>
+<div class="movement-code-grid">
+<figure><img src="assets/media-12.png" alt="Unity Inspector Inventory Stats Handler showing inventory UI references and inventory prefabs" loading="lazy"><figcaption>01 / Inventory stats and UI references</figcaption></figure>
+<figure><img src="assets/media-13.png" alt="Unity Inspector Raycast Pickup script showing pickup range, interact layer, player camera and item pickup references" loading="lazy"><figcaption>02 / Raycast pickup and interaction settings</figcaption></figure>
+<figure class="compact-inspector"><img src="assets/media-14.png" alt="Unity Inspector Item Switcher script showing weapon and tool references, animations, sounds, equip delay and inventory flags" loading="lazy"><figcaption>03 / Item switching, animations and audio settings</figcaption></figure>
+</div>
+</div>
+<a href="#vector-details" class="detail-back">← Back to project</a></article><article class="system-breakdown-card movement-detail" id="vector-combat"><span class="system-kicker">VECTOR OF FEAR / SYSTEM BREAKDOWN</span><h4>Combat</h4><div class="vector-single-video"><figure><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Vector of Fear combat gameplay"><source src="assets/media-15.mp4" type="video/mp4">Your browser does not support video.</video><figcaption>Combat / Gameplay demonstration</figcaption></figure></div><h5>How the system works</h5><div class="combat-settings-gallery"><h5>Combat configuration screenshots</h5><div class="combat-settings-grid"><figure><img src="assets/media-16.png" alt="Taser Rod stun range, cooldown, audio and UI settings" loading="lazy"><figcaption>Taser Rod Attack</figcaption></figure><figure><img src="assets/media-17.png" alt="Flamethrower usage, fire effects, range and cooldown settings" loading="lazy"><figcaption>Flamethrower</figcaption></figure><figure><img src="assets/media-18.png" alt="Vector9 fire fear distance, retreat speed and retreat toggle" loading="lazy"><figcaption>Vector9 Fire Fear Settings</figcaption></figure><figure><img src="assets/media-19.png" alt="Vector9 stun and slow states, stun range and NavMesh agent" loading="lazy"><figcaption>Vector9 Stun & Slow Settings</figcaption></figure></div></div><a href="#vector-details" class="detail-back">← Back to project</a></article><article class="system-breakdown-card movement-detail" id="vector-misc"><span class="system-kicker">VECTOR OF FEAR / SYSTEM BREAKDOWN</span><h4>Miscellaneous</h4><div class="misc-clips-grid"><div class="misc-video-unit misc-camera-unit"><h5>Camera Bobbing</h5><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Camera Bobbing gameplay demonstration"><source src="assets/media-20.mp4" type="video/mp4">Your browser does not support embedded video.</video><div class="misc-clip-description"><h6>How the system works</h6><div class="misc-camera-settings-gallery" aria-label="Camera bobbing Unity Inspector settings"><figure><img src="assets/media-21.png" alt="Unity Inspector Camera Sway settings with camera pivot, sway toggle, Z start and end and movement speed" loading="lazy"><figcaption>Camera Sway</figcaption></figure><figure><img src="assets/media-22.png" alt="Unity Inspector View Bobbing settings for frequency, horizontal and vertical amplitude, smoothing and camera reference" loading="lazy"><figcaption>View Bobbing</figcaption></figure><figure><img src="assets/media-23.png" alt="Unity Inspector first-person controller walking and running speed, gravity, look speed and headbobbing component" loading="lazy"><figcaption>First-Person Controller & Headbobbing</figcaption></figure><figure><img src="assets/media-24.png" alt="Unity Inspector Walk Camera Shake settings showing animation curve and duration" loading="lazy"><figcaption>Walk Camera Shake</figcaption></figure></div></div></div><div class="misc-video-unit"><h5>Generator Repairing</h5><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Generator Repairing gameplay demonstration"><source src="assets/media-25.mp4" type="video/mp4">Your browser does not support embedded video.</video><div class="misc-clip-description"><h6>How the system works</h6><div class="misc-single-settings-gallery"><figure><img src="assets/media-26.png" alt="Unity Inspector Generator Logic script showing repair percentage, skill check, repair duration, generator audio, lights, spare part and proximity hum settings" loading="lazy"><figcaption>Generator Logic / Repair Settings</figcaption></figure></div></div></div><div class="misc-video-unit"><h5>Crate UI</h5><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Crate UI gameplay demonstration"><source src="assets/media-27.mp4" type="video/mp4">Your browser does not support embedded video.</video><div class="misc-clip-description"><h6>How the system works</h6><div class="misc-single-settings-gallery"><figure><img src="assets/media-28.png" alt="Unity Inspector Crate UI script showing crate, equip icon, player cursor, collected parts, item rotation, inventory and objectives references" loading="lazy"><figcaption>Crate UI / Item Collection Settings</figcaption></figure></div></div></div><div class="misc-video-unit misc-save-unit"><h5>Main Menu, Save System &amp; Checkpoints</h5><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Main Menu, Save System and Checkpoints gameplay demonstration"><source src="assets/media-29.mp4" type="video/mp4">Your browser does not support embedded video.</video><div class="misc-clip-description"><h6>How the system works</h6><div class="movement-code-gallery"><div class="movement-code-grid save-settings-grid"><figure><img src="assets/media-30.png" alt="Unity Inspector Game Handler script showing player spawn, generator and item progress, crates, pickups, and generator save references" loading="lazy"><figcaption>01 / Game Handler — Save System and Progress Tracking</figcaption></figure><figure><img src="assets/media-31.png" alt="Unity Inspector Checkpoint script showing Checkpoint UI and Game Handler references" loading="lazy"><figcaption>02 / Checkpoint — UI and Game Handler References</figcaption></figure></div></div></div></div></div><a href="#vector-details" class="detail-back">← Back to project</a></article></div><h3 class="system-group-title">Nebula</h3><div class="system-breakdown-grid"><article class="system-breakdown-card movement-detail" id="nebula-look">
+<span class="system-kicker">NEBULA / SYSTEM BREAKDOWN</span>
+<h4>Camera look rotation</h4>
+<div class="movement-gifs">
+<figure><img src="assets/media-32.gif" alt="Animated demonstration of camera rotation settings in Unity" loading="lazy"><figcaption>Camera rotation configuration</figcaption></figure>
+<figure><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Nebula camera rotation gameplay demonstration"><source src="assets/media-33.mp4" type="video/mp4">Your browser does not support embedded video.</video><figcaption>Camera rotation in-game</figcaption></figure>
+</div>
+<h5>How the system works</h5>
+<p>The camera rotation system in Nebula uses the player's mouse input to look freely around the 3D space environment. Horizontal and vertical mouse movements are detected and converted into camera rotation using Unity's Quaternion system. Adjustable X and Y sensitivity settings control the speed of rotation on each axis. Vertical rotation is clamped between −90° and 90° to prevent excessive camera tilting, while a separate orientation transform tracks the player's horizontal facing direction to maintain consistent movement controls.</p>
+<div class="movement-code-gallery">
+<h5>Code implementation breakdown</h5>
+<p>These C# screenshots show the configurable sensitivity variables, mouse input detection, rotation clamping, and how camera and player orientation are updated.</p>
+<div class="movement-code-grid">
+<figure><img src="assets/media-34.png" alt="Unity C# camera look script with mouse input, sensitivity, vertical rotation clamp, and Quaternion camera and orientation rotation" loading="lazy"><figcaption>01 / Mouse input, clamping, and Quaternion rotation</figcaption></figure>
+<figure><img src="assets/media-35.png" alt="Unity Inspector showing camera rotation sensitivity and orientation transform" loading="lazy"><figcaption>02 / Sensitivity settings and orientation setup</figcaption></figure>
+</div>
+</div>
+<div class="movement-diagram"><h5>Camera rotation flow</h5><figure><img src="assets/media-36.png" alt="Camera rotation diagram: mouse input, calculate rotation with sensitivity and vertical clamps, rotate camera and orientation" loading="lazy"><figcaption>From mouse input to camera and orientation rotation</figcaption></figure></div>
+<h5>Contributions</h5>
+<div class="movement-contributions"><span>Variable creation for look sensitivity, orientation &amp; rotation</span><span>Mouse input detection &amp; rotation clamping</span></div>
+<a href="#nebula-details" class="detail-back">← Back to Nebula</a>
+</article><article class="system-breakdown-card movement-detail" id="nebula-movement">
+<span class="system-kicker">NEBULA / SYSTEM BREAKDOWN</span>
+<h4>Jumping and movement control</h4>
+<div class="movement-gifs">
+<figure><img src="assets/media-37.gif" alt="Unity Player Movement inspector settings for movement, jumping, and ground detection" loading="lazy"><figcaption>Player movement configuration</figcaption></figure>
+<figure><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Nebula player movement and jumping gameplay"><source src="assets/media-38.mp4" type="video/mp4">Your browser does not support embedded video.</video><figcaption>Movement and jumping in-game</figcaption></figure>
+</div>
+<h5>How the system works</h5>
+<p>The player movement system uses keyboard inputs to move the player in multiple directions relative to the direction the camera is facing. Movement is handled using Unity’s Rigidbody physics system, which applies forces to move the player around the environment. Jumping is performed by applying an upward force when the spacebar is pressed, while a ground detection system ensures the player can only jump when touching the ground. A jump cooldown also prevents continuous jumping.</p>
+<div class="movement-code-gallery">
+<h5>Code implementation breakdown</h5>
+<p>These C# screenshots highlight the movement inputs, Rigidbody force application, jumping logic, ground checks, and configurable movement variables.</p>
+<div class="movement-code-grid">
+<figure><img src="assets/media-39.png" alt="PlayerMovement C# fields for move speed, drag, jump force, cooldown, air multiplier and ground checks" loading="lazy"><figcaption>01 / Movement settings and variables</figcaption></figure>
+<figure><img src="assets/media-40.png" alt="C# Start, FixedUpdate and Update functions implementing Rigidbody setup, movement updates, ground detection and drag" loading="lazy"><figcaption>02 / Rigidbody setup, ground detection and drag</figcaption></figure>
+<figure class="code-wide"><img src="assets/media-41.png" alt="C# MyInput, MovePlayer and Jump functions for input detection, grounded and airborne forces and jump impulse" loading="lazy"><figcaption>03 / Input detection, movement forces and jumping</figcaption></figure>
+</div></div>
+<div class="movement-diagram"><h5>Player movement flow</h5><figure><img src="assets/media-42.png" alt="Player Movement flowchart: WASD keyboard input detects direction, calculates movement relative to player orientation, then applies Rigidbody force" loading="lazy"><figcaption>From keyboard input to Rigidbody movement</figcaption></figure></div>
+<h5>Contributions</h5>
+<div class="movement-contributions"><span>Movement input detection</span><span>Ground detection</span><span>Jumping &amp; cooldowns</span><span>Rigidbody physics movement</span></div>
+<a href="#nebula-details" class="detail-back">← Back to Nebula</a>
+</article><article class="system-breakdown-card movement-detail" id="nebula-gravity">
+<span class="system-kicker">NEBULA / SYSTEM BREAKDOWN</span>
+<h4>Low gravity mechanics</h4>
+<div class="gravity-video-wrap"><figure><video class="movement-video" autoplay muted loop playsinline controls preload="metadata" aria-label="Nebula low gravity jumping gameplay"><source src="assets/media-43.mp4" type="video/mp4">Your browser does not support embedded video.</video><figcaption>Low-gravity platforming gameplay</figcaption></figure></div>
+<h5>How the system works</h5>
+<p>The low gravity system is designed to create a space-like experience where players can jump much higher than usual and travel far distances between asteroid platforms. By adjusting the jump force and air movement multiplier, the player can jump much further while still having good control of their movement in the air. These settings allow for a floating movement experience that supports the game’s main platforming mechanics. The effect can be changed by reducing the Rigidbody’s gravity through a separate gravity configuration.</p>
+<div class="movement-code-gallery"><h5>Code implementation breakdown</h5><p>These C# screenshots show the movement settings, grounded checks, and the forces used for jumping and midair control.</p><div class="movement-code-grid">
+<figure><img src="assets/media-39.png" alt="PlayerMovement C# configurable movement and jump fields including jumpForce and airMultiplier" loading="lazy"><figcaption>01 / Jump and air-control variables</figcaption></figure>
+<figure><img src="assets/media-40.png" alt="Unity C# Rigidbody initialization, ground detection and drag handling" loading="lazy"><figcaption>02 / Rigidbody and grounded state</figcaption></figure>
+<figure class="code-wide"><img src="assets/media-41.png" alt="Unity C# jump input, grounded and airborne movement forces, and Jump impulse" loading="lazy"><figcaption>03 / Jump impulse and air movement multiplier</figcaption></figure>
+</div></div>
+<div class="movement-diagram"><h5>Low gravity flow</h5><figure><img src="assets/media-44.png" alt="Low Gravity flowchart: press Space when grounded and ready, apply upward Rigidbody impulse, then adjust movement in air with air multiplier" loading="lazy"><figcaption>From jump input to controlled movement in the air</figcaption></figure></div>
+<h5>Contributions</h5><div class="movement-contributions"><span>Custom air multiplier &amp; jump settings</span><span>Jump functionality</span></div>
+<a href="#nebula-details" class="detail-back">← Back to Nebula</a>
+</article></div></div></section>
+<section class="section" id="focus">
+  <div class="wrap focus">
+    <div><div class="kicker">05 / Speciality</div><h2>Programming is my focus.</h2><p>I’m interested in the systems that connect a game's mechanics, player input, and world interactions. This portfolio will grow with more detailed breakdowns of my contributions and technical work.</p></div>
+    <div class="skill-list">
+      <div class="skill"><strong>Gameplay Programming</strong><span>Player mechanics and interactive gameplay logic.</span></div>
+      <div class="skill"><strong>Systems &amp; Logic</strong><span>Building features that work together reliably.</span></div>
+      <div class="skill"><strong>Unity 3D</strong><span>Developing and iterating on gameplay in Unity.</span></div>
+      <div class="skill"><strong>Unreal Engine</strong><span>Exploring gameplay systems and implementation in Unreal.</span></div>
+    </div>
+  </div>
+</section>
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="contact-panel"><div><div class="kicker">06 / Contact</div><h2>Let's connect.</h2><p>If you’d like to get in touch or learn more about my work, feel free to email me at <a class="email-link" href="mailto:ezsean11@gmail.com">ezsean11@gmail.com</a>.</p><div class="contact-links" aria-label="My online profiles"><a class="contact-social" href="https://seraphim-otu.itch.io/" target="_blank" rel="noopener noreferrer">itch.io <span aria-hidden="true">↗</span></a><a class="contact-social" href="https://www.linkedin.com/in/sean-nwabuoku-bba801375" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></div><a class="btn btn-primary" href="mailto:ezsean11@gmail.com">Email me <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap footer-inner"><span>© <span id="year"></span> Sean Nwabuoku · Game Development Portfolio</span><a class="back-top" href="#home">Back to top ↑</a></div></footer>
+<script>
+const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'✕':'☰';});
+nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰';}));
+document.getElementById('year').textContent=new Date().getFullYear();
+const sections=[...document.querySelectorAll('main section[id]')],links=[...nav.querySelectorAll('a[href^="#"]')];
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+entry.target.id));}}),{rootMargin:'-35% 0px -55% 0px'});sections.forEach(section=>observer.observe(section));}
+</script>
+</body>
+</html>
